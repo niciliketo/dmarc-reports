@@ -12,13 +12,13 @@ class ParseDmarc
   end
 
   def unzip(file)
-    xml = ''
+    xml = ''.dup
     Zip::File.open(file) do |zip_file|
-      xml = ''
-      # Find specific entry
       entry = zip_file.glob('*.xml').first
       # raise 'File too large when extracted' if entry.size > MAX_SIZE
-      entry.get_input_stream { |io| xml << io.read }
+      entry.get_input_stream do |io|
+        xml << io.read
+      end
     end
     xml
   end
@@ -60,7 +60,7 @@ class ParseDmarc
       dkim_hresult: 'auth_results/dkim/human_result',
       spf_domain: 'auth_results/spf/domain',
       spf_result: 'auth_results/spf/result'
-    }.freeze
+    }
 
     @doc.xpath('//record').map do |record|
       record_attrs = {}
