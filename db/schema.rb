@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_02_28_214609) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
     t.string "message_id", null: false
@@ -49,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_28_214609) do
   end
 
   create_table "records", force: :cascade do |t|
-    t.integer "report_id", null: false
+    t.bigint "report_id", null: false
     t.string "source_ip"
     t.string "dkim"
     t.string "spf"
