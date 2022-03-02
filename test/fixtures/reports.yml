@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  org: MyString
+  email: MyString
+  extra_contact_info: MyString
+  report_id: MyString
+  begin: 2022-02-28 20:32:19
+  end: 2022-02-28 20:32:19
+
+two:
+  org: MyString
+  email: MyString
+  extra_contact_info: MyString
+  report_id: MyString
+  begin: 2022-02-28 20:32:19
+  end: 2022-02-28 20:32:19

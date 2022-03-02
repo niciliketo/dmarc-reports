@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  report: one
+  source_ip: MyString
+  dkim: MyString
+  spf: MyString
+  type: 
+  comment: MyString
+  header_from: MyString
+  dkim_domain: MyString
+  dkim_result: MyString
+  dkim_hresult: MyString
+  spf_domain: MyString
+  spf_result: MyString
+
+two:
+  report: two
+  source_ip: MyString
+  dkim: MyString
+  spf: MyString
+  type: 
+  comment: MyString
+  header_from: MyString
+  dkim_domain: MyString
+  dkim_result: MyString
+  dkim_hresult: MyString
+  spf_domain: MyString
+  spf_result: MyString

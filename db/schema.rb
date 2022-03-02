@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_27_170027) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_28_214609) do
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
     t.string "message_id", null: false
@@ -48,6 +48,40 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_27_170027) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "records", force: :cascade do |t|
+    t.integer "report_id", null: false
+    t.string "source_ip"
+    t.string "dkim"
+    t.string "spf"
+    t.string "type"
+    t.string "comment"
+    t.string "header_from"
+    t.string "dkim_domain"
+    t.string "dkim_result"
+    t.string "dkim_hresult"
+    t.string "spf_domain"
+    t.string "spf_result"
+    t.integer "count"
+    t.string "disposition"
+    t.string "reason_type"
+    t.string "reason_comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["report_id"], name: "index_records_on_report_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string "org_name"
+    t.string "email"
+    t.string "extra_contact_info"
+    t.string "report_id"
+    t.datetime "begin"
+    t.datetime "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "records", "reports"
 end

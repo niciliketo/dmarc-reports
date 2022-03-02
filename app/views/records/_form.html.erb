@@ -1,0 +1,77 @@
+<%= form_with(model: record) do |form| %>
+  <% if record.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
+
+      <ul>
+        <% record.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :report_id, style: "display: block" %>
+    <%= form.text_field :report_id %>
+  </div>
+
+  <div>
+    <%= form.label :source_ip, style: "display: block" %>
+    <%= form.text_field :source_ip %>
+  </div>
+
+  <div>
+    <%= form.label :dkim, style: "display: block" %>
+    <%= form.text_field :dkim %>
+  </div>
+
+  <div>
+    <%= form.label :spf, style: "display: block" %>
+    <%= form.text_field :spf %>
+  </div>
+
+  <div>
+    <%= form.label :type, style: "display: block" %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div>
+    <%= form.label :comment, style: "display: block" %>
+    <%= form.text_field :comment %>
+  </div>
+
+  <div>
+    <%= form.label :header_from, style: "display: block" %>
+    <%= form.text_field :header_from %>
+  </div>
+
+  <div>
+    <%= form.label :dkim_domain, style: "display: block" %>
+    <%= form.text_field :dkim_domain %>
+  </div>
+
+  <div>
+    <%= form.label :dkim_result, style: "display: block" %>
+    <%= form.text_field :dkim_result %>
+  </div>
+
+  <div>
+    <%= form.label :dkim_hresult, style: "display: block" %>
+    <%= form.text_field :dkim_hresult %>
+  </div>
+
+  <div>
+    <%= form.label :spf_domain, style: "display: block" %>
+    <%= form.text_field :spf_domain %>
+  </div>
+
+  <div>
+    <%= form.label :spf_result, style: "display: block" %>
+    <%= form.text_field :spf_result %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
