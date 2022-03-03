@@ -8,41 +8,7 @@ class ParseDmarc
   MAX_SIZE = 1024**3
 
   def initialize(file)
-    @doc = Nokogiri::XML.parse(unzip(file))
-  end
-
-  def unzip(thing)
-    if thing.is_a?(String)
-      unzip_file(thing)
-    elsif thing.is_a?(Mail::Part)
-      unzip_attachment(thing)
-    else
-      raise 'unzip: unknown type'
-    end
-  end
-
-  def unzip_file(file)
-    xml = ''.dup
-    Zip::File.open(file) do |zip_file|
-      entry = zip_file.glob('*.xml').first
-      # raise 'File too large when extracted' if entry.size > MAX_SIZE
-      entry.get_input_stream do |io|
-        xml << io.read
-      end
-    end
-    xml
-  end
-
-  def unzip_attachment(attachment)
-    xml = ''.dup
-    Zip::File.open_buffer(attachment.decoded) do |zip_file|
-      entry = zip_file.glob('*.xml').first
-      # raise 'File too large when extracted' if entry.size > MAX_SIZE
-      entry.get_input_stream do |io|
-        xml << io.read
-      end
-    end
-    xml
+    @doc = Nokogiri::XML.parse(file)
   end
 
   def metadata

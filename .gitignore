@@ -72,3 +72,6 @@ log/development.log
 *.log
 
 /config/master.key
+
+# vscode
+.vscode/*
