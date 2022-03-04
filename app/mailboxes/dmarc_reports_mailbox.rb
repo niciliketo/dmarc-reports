@@ -13,8 +13,9 @@ class DmarcReportsMailbox < ApplicationMailbox
     mail.attachments.each do |attachment|
       xml = ParseAttachment.new(attachment).content
       dmarc = ParseDmarc.new(xml)
-      report = Report.create(dmarc.metadata)
-      # report.create_policy_published(dmarc.policy_published)
+      pp = PolicyPublished.find_or_create_by(dmarc.policy_published)
+      report = Report.create(dmarc.metadata.merge(policy_published: pp))
+
       dmarc.records.each do |row|
         report.records << Record.create(row)
       end

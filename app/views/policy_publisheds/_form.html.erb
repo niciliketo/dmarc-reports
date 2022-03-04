@@ -1,0 +1,42 @@
+<%= form_with(model: policy_published) do |form| %>
+  <% if policy_published.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(policy_published.errors.count, "error") %> prohibited this policy_published from being saved:</h2>
+
+      <ul>
+        <% policy_published.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :domain, style: "display: block" %>
+    <%= form.text_field :domain %>
+  </div>
+
+  <div>
+    <%= form.label :adkim, style: "display: block" %>
+    <%= form.text_field :adkim %>
+  </div>
+
+  <div>
+    <%= form.label :aspf, style: "display: block" %>
+    <%= form.text_field :aspf %>
+  </div>
+
+  <div>
+    <%= form.label :p, style: "display: block" %>
+    <%= form.text_field :p %>
+  </div>
+
+  <div>
+    <%= form.label :pct, style: "display: block" %>
+    <%= form.text_field :pct %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

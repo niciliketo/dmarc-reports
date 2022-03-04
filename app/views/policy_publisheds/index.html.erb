@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Policy publisheds</h1>
+
+<div id="policy_publisheds">
+  <% @policy_publisheds.each do |policy_published| %>
+    <%= render policy_published %>
+    <p>
+      <%= link_to "Show this policy published", policy_published %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New policy published", new_policy_published_path %>

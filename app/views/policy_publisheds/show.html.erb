@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @policy_published %>
+
+<div>
+  <%= link_to "Edit this policy published", edit_policy_published_path(@policy_published) %> |
+  <%= link_to "Back to policy publisheds", policy_publisheds_path %>
+
+  <%= button_to "Destroy this policy published", @policy_published, method: :delete %>
+</div>

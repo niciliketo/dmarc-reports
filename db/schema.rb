@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_28_214609) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_04_173503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_28_214609) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "policy_publisheds", force: :cascade do |t|
+    t.string "domain"
+    t.string "adkim"
+    t.string "aspf"
+    t.string "p"
+    t.string "pct"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "records", force: :cascade do |t|
     t.bigint "report_id", null: false
     t.string "source_ip"
@@ -82,9 +92,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_28_214609) do
     t.datetime "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "policy_published_id", null: false
+    t.index ["policy_published_id"], name: "index_reports_on_policy_published_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "records", "reports"
+  add_foreign_key "reports", "policy_publisheds"
 end
