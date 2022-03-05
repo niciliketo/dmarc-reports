@@ -1,0 +1,23 @@
+<div class="p-5">
+    <table class="w-full p-5 text-gray-700">
+        <thead>
+        <tr>
+            <th class="text-left text-blue-900">Domain</th>
+            <th class="text-left text-blue-900">ADKIM</th>
+            <th class="text-left text-blue-900">P</th>
+            <th class="text-left text-blue-900">PCT</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @policy_publisheds.each do |policy_published| %>
+        <tr>
+            <td><%= link_to policy_published.domain, policy_published %></td>
+            <td><%= policy_published.adkim %></td>
+            <td><%= policy_published.p %></td>
+            <td><%= policy_published.pct %></td>
+        </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>

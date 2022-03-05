@@ -4,16 +4,8 @@
                 <%= render '/layouts/sections/section_title' %>
                 <%= render '/layouts/sections/notice' %>
                 <div class="flex flex-wrap">
-                    <%= render partial: 'layouts/cards/x', layout: 'layouts/cards/metric_card', locals: {color: 'pink', title: 'Total Revenue'}%>
-                    <%= render partial: 'layouts/cards/x', layout: 'layouts/cards/metric_card', locals: {color: 'green', title: 'Total Revenue'}%>
-                    <%= render partial: 'layouts/cards/x', layout: 'layouts/cards/metric_card', locals: {color: 'blue', title: 'Total Revenue'}%>
-                </div>
-
-
-                <div class="flex flex-row flex-wrap flex-grow mt-2">
-
-                <%= yield %>
-                <%= render '/layouts/cards/advert_card' %>
+                    <%= yield %>
+                    <%= render '/layouts/cards/advert_card' %>
                 </div>
             </div>
 
