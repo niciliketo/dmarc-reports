@@ -12,7 +12,6 @@ class DmarcReportsMailbox < ApplicationMailbox
   def create_records_from_attachment(mail)
     Rails.logger.info "Processing attachments"
     mail.attachments.each do |attachment|
-      debugger
       Rails.logger.info "Attachment: #{attachment.filename} "
       # TODO: DRY
       xml = ParseAttachment.new(attachment).content
