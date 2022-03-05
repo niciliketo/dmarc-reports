@@ -3,17 +3,17 @@
 # Parse attachments and extrac the text
 class ParseDirectory
   def initialize(dir)
-    Dir.chdir(dir)
+    @dir = dir
   end
 
   def file_names
-    Dir.glob('{*.xml,*.gz,*.zip}')
+    Dir.glob("#{@dir}/{*.xml,*.gz,*.zip}")
 end
 
   def process
     file_names.each do |file_name|
       file = File.open(file_name, 'r')
-      #TODO: DRY
+      # TODO: DRY
       xml = ParseFile.new(file).content
       dmarc = ParseDmarc.new(xml)
       pp = PolicyPublished.find_or_create_by(dmarc.policy_published)
@@ -30,7 +30,6 @@ end
 
   def file_to_attachment(file)
     m = Mail.new
-    debugger
     m.attachments[file] = file
     res = ParseAttachment.new(m.attachments.first)
     assert_includes res.content, 'org_name'
