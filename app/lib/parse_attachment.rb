@@ -39,8 +39,7 @@ class ParseAttachment
   end
 
   def gunzip_attachment(attachment)
-    fd = IO.sysopen('test/fixtures/files/report2.xml.gz')
-    io = IO.new(fd)
+    io = StringIO.new(attachment.decoded)
     gz = Zlib::GzipReader.new(io)
     xml = gz.read
     gz.close
