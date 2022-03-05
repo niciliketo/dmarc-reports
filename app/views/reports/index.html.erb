@@ -1,16 +1,7 @@
-<p style="color: green"><%= notice %></p>
+<%= render partial: '/reports/charts/pie_org_name', layout: '/layouts/cards/card', locals: {title: 'Reports by org_name' } %>
 
-<h1>Reports</h1>
+<%= render partial: '/reports/tables/table_reports', layout: '/layouts/cards/card', locals: {title: 'Table' } %>
 
-<%= pie_chart Report.group(:org_name).count %>
 
-<div id="reports">
-  <% @reports.each do |report| %>
-    <%= render report %>
-    <p>
-      <%= link_to "Show this report", report %>
-    </p>
-  <% end %>
-</div>
 
 <%#= link_to "New report", new_report_path %>

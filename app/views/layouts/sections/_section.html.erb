@@ -1,0 +1,12 @@
+        <section>
+            <div id="main" class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
+
+                <%= render '/layouts/sections/section_title' %>
+                <%= render '/layouts/sections/notice' %>
+                <div class="flex flex-wrap">
+                    <%= yield %>
+                    <%= render '/layouts/cards/advert_card' %>
+                </div>
+            </div>
+
+        </section>
