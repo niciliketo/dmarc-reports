@@ -75,3 +75,5 @@ log/development.log
 
 # vscode
 .vscode/*
+/app/assets/builds/*
+!/app/assets/builds/.keep
