@@ -1,7 +1,7 @@
 
-<%= render partial: 'layouts/cards/metric_card', locals: {color: 'pink', title: 'Policies', value: @policy_publisheds.count}%>
-<%= render partial: 'layouts/cards/metric_card', locals: {color: 'green', title: 'First policy created', value: @policy_publisheds.first.created_at.to_date.to_fs(:long) }%>
-<%= render partial: 'layouts/cards/metric_card', locals: {color: 'blue', title: 'Latest policy created', value: @policy_publisheds.last.created_at.to_date.to_fs(:long) }%>
+<%= render partial: 'layouts/cards/metric_card', locals: {fa_icon: 'fa-tasks', title: 'Policies', value: @policy_publisheds.count}%>
+<%= render partial: 'layouts/cards/metric_card', locals: {fa_icon: 'fa-calendar', title: 'First policy created', value: @policy_publisheds.first.created_at.to_date.to_fs(:long) }%>
+<%= render partial: 'layouts/cards/metric_card', locals: {fa_icon: 'fa-calendar', title: 'Latest policy created', value: @policy_publisheds.last.created_at.to_date.to_fs(:long) }%>
 
 <%= render partial: '/policy_publisheds/charts/pie_domain_name', layout: '/layouts/cards/card', locals: {title: 'Policies by domain_name' } %>
 <%= render partial: '/policy_publisheds/charts/line_domain_name', layout: '/layouts/cards/card', locals: {title: 'Policies reports over time' } %>
