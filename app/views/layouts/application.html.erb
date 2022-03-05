@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DmarcReports</title>
+    <title>DMARC Reports</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+
+  <body class="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
+    <%= render 'layouts/header' %>
+    <main>
+      <div class="flex flex-col md:flex-row">
+        <%= render 'layouts/nav' %>
+        <%= render 'layouts/sections/section' %>
+      </div>
+    </main>
+    <%= render 'layouts/scripts' %>
   </body>
 </html>
+
+

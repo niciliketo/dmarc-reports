@@ -1,17 +1,8 @@
-<h1>Policy publisheds</h1>
+<%= render partial: '/policy_publisheds/charts/pie_domain_name', layout: '/layouts/cards/card', locals: {title: 'Policies by domain_name' } %>
+<%= render partial: '/policy_publisheds/charts/line_domain_name', layout: '/layouts/cards/card', locals: {title: 'Policies reports over time' } %>
 
-<p style="color: green"><%= notice %></p>
+<%= render partial: '/policy_publisheds/tables/policy_publisheds_table', layout: '/layouts/cards/card', locals: {title: 'Table' } %>
 
-<%= pie_chart PolicyPublished.group(:domain).count %>
-<%= line_chart PolicyPublished.group(:domain).joins(:reports).group_by_day('reports.begin').count %>
 
-<div id="policy_publisheds">
-  <% @policy_publisheds.each do |policy_published| %>
-    <%= render policy_published %>
-    <p>
-      <%= link_to "Show this policy published", policy_published %>
-    </p>
-  <% end %>
-</div>
 
 <%= link_to "New policy published", new_policy_published_path %>
