@@ -1,6 +1,9 @@
+<h1>Policy publisheds</h1>
+
 <p style="color: green"><%= notice %></p>
 
-<h1>Policy publisheds</h1>
+<%= pie_chart PolicyPublished.group(:domain).count %>
+<%= line_chart PolicyPublished.group(:domain).joins(:reports).group_by_day('reports.begin').count %>
 
 <div id="policy_publisheds">
   <% @policy_publisheds.each do |policy_published| %>
