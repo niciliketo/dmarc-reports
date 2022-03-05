@@ -11,6 +11,7 @@ class DmarcReportsMailbox < ApplicationMailbox
 
   def create_records_from_attachment(mail)
     mail.attachments.each do |attachment|
+      # TODO: DRY
       xml = ParseAttachment.new(attachment).content
       dmarc = ParseDmarc.new(xml)
       pp = PolicyPublished.find_or_create_by(dmarc.policy_published)

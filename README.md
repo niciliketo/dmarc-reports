@@ -15,3 +15,9 @@ To run the tests:
 ```bash
 rake test
 ```
+
+To load reports locally:
+Copy your reports to a directory, then from the ruby console run
+```ruby
+ParseDirectory.new('/path/to/directory').process
+```
