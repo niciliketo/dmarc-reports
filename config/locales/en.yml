@@ -30,7 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  attributes:
+    id: "ID"
+    created_at: "Created"
+    updated_at: "Updated"
   activerecord:
     models:
       policy_published:
@@ -43,6 +46,7 @@ en:
         one: Report
         other: Reports
     attributes:
+      updated_at: "!dfsklfgjhsd"
       policy_published:
         domain: Domain
         adkim: ADKIM
