@@ -1,7 +1,10 @@
-<%= render partial: '/reports/charts/pie_org_name', layout: '/layouts/cards/card', locals: {title: 'Reports by org_name' } %>
+<%= render(CardComponent.new(title: 'Reports by org_name')) do %>
+  <%= render partial:'/reports/charts/pie_org_name' %>
+<% end %>
 
-<%= render partial: '/reports/tables/table_reports', layout: '/layouts/cards/card', locals: {title: 'Table' } %>
-
+<%= render(CardComponent.new(title: 'Table')) do %>
+  <%= render partial: '/reports/tables/table_reports' %>
+<% end %>
 
 
 <%#= link_to "New report", new_report_path %>

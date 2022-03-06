@@ -1,4 +1,7 @@
-<%= render @policy_published %>
+<%= render(CardComponent.new(title: @policy_published.domain)) do %>
+  <%= render @policy_published %><h1>Hi</h1>
+<% end %>
+
 
 <div>
   <%= link_to "Edit this policy published", edit_policy_published_path(@policy_published) %> |

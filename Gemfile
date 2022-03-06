@@ -56,6 +56,8 @@ gem 'chartkick'
 gem 'groupdate'
 # Parse zip files because reports are zipped
 gem 'rubyzip'
+# View components to tidy up view
+gem 'view_component'
 
 
 group :development, :test do
