@@ -31,3 +31,45 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    models:
+      policy_published:
+        one:
+        other: Policies
+      record:
+        one: Record
+        other: Records
+      report:
+        one: Report
+        other: Reports
+    attributes:
+      policy_published:
+        domain: Domain
+        adkim: ADKIM
+        aspf: ASPF
+        p: P
+        pct: PCT
+      record:
+        source_ip: "Source IP"
+        dkim: DKIM
+        spf: SPF
+        type: Type
+        comment: Comment
+        header_from: "Header From"
+        dkim_domain: "DKIM Domain"
+        dkim_result: "DKIM Result"
+        dkim_hresult: "DKIM HResult"
+        spf_domain: "SPF Domain"
+        spf_result: "SPF Result"
+        count: "Count"
+        disposition: "Disposition"
+        reason_type: "Reason Type"
+        reason_comment: "Reason Comment"
+      report:
+        org_name: "Org Name"
+        email: "Email"
+        extra_contact_info: "Extra Contact Info"
+        report_id: "Report ID"
+        begin: "Begin"
+        end: "End"
+
