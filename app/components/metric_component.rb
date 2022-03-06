@@ -6,5 +6,4 @@ class MetricComponent < ViewComponent::Base
     @icon = icon
     @value = value
   end
-
 end

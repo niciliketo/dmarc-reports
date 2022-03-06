@@ -1,15 +1,14 @@
 
-<%= render partial: 'layouts/cards/metric_card', locals: {fa_icon: 'fa-tasks', title: 'Policies', value: @policy_publisheds.count}%>
-<%= render partial: 'layouts/cards/metric_card', locals: {fa_icon: 'fa-calendar', title: 'First policy created', value: @policy_publisheds.first&.created_at&.to_date&.to_fs(:long) || '-' }%>
-<%= render partial: 'layouts/cards/metric_card', locals: {fa_icon: 'fa-calendar', title: 'Latest policy created', value: @policy_publisheds.last&.created_at&.to_date&.to_fs(:long) || '-'}%>
+<%= render(MetricComponent.new(title: t('activerecord.models.policy_published.other'), icon: 'fa-tasks', value: @policy_publisheds.count)) %>
+<%= render(MetricComponent.new(title: t('views.widgets.policies.first'), icon: 'fa-calendar', value: @policy_publisheds.first&.created_at&.to_date&.to_fs(:long) || '-' )) %>
+<%= render(MetricComponent.new(title: t('views.widgets.policies.latest'), icon: 'fa-calendar', value: @policy_publisheds.last&.created_at&.to_date&.to_fs(:long) || '-')) %>
 
-
-<%= render(CardComponent.new(title: 'Policies by domain_name')) do %>
+<%= render(CardComponent.new(title: t('views.widgets.policies.by_domain'))) do %>
   <%= render partial: '/policy_publisheds/charts/pie_domain_name' %>
 <% end %>
-<%= render(CardComponent.new(title: 'Policies reports over time')) do %>
+<%= render(CardComponent.new(title: t('views.widgets.policies.over_time'))) do %>
   <%= render partial:  '/policy_publisheds/charts/line_domain_name' %>
 <% end %>
-<%= render(CardComponent.new(title:  'Policies published')) do %>
+<%= render(CardComponent.new(title:  t('views.widgets.policies.published'))) do %>
   <%= render partial:  '/policy_publisheds/tables/list' %>
 <% end %>

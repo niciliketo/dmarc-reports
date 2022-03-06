@@ -72,4 +72,13 @@ en:
         report_id: "Report ID"
         begin: "Begin"
         end: "End"
+  views:
+    widgets:
+      policies:
+        first: 'First policy created'
+        latest: 'Latest policy created'
+        by_domain: 'Policies by domain_name'
+        over_time: 'Policies reports over time'
+        published: 'Policies published'
+
 
