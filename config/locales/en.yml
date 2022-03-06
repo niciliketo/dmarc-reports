@@ -34,7 +34,7 @@ en:
   activerecord:
     models:
       policy_published:
-        one:
+        one: Policy
         other: Policies
       record:
         one: Record
