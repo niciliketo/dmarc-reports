@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationMailbox < ActionMailbox::Base
-  routing /dmarc/i     => :dmarc_reports
+  routing all: :dmarc_reports
 end
