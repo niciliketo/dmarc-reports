@@ -1,13 +1,21 @@
-<%= render @report %>
+<% content_for :page_title do %>
+   <%= @report.org_name %>
+<% end %>
+<% [:email, :extra_contact_info, :report_id, :begin, :end].each do |column| %>
+  <%= render(MetricComponent.new(title: Report.human_attribute_name(column), icon: 'fa-tasks', value: @report[column])) %>
+<% end %>
 
-<h2>Records</h2>
-<table>
-<%= render partial: "record_header" %>
-<%= render partial: "record_list", collection: @report.records, as: :record %>
-</table>
+<%= render(CardComponent.new(title: Record.model_name.human(count: @report.records), width: :full)) do %>
+  <%= render(TableComponent.new(columns: [:source_ip, :dkim, :spf, :type, :comment, :header_from, :dkim_domain, :dkim_result, :dkim_hresult, :spf_domain, :spf_result, :count, :disposition, :reason_type, :reason_comment] , data: @report.records)) %>
+<% end %>
+
+
+<!--
 <div>
   <%#= link_to "Edit this report", edit_report_path(@report) %> |
   <%= link_to "Back to reports", reports_path %>
 
   <%= button_to "Destroy this report", @report, method: :delete %>
 </div>
+
+-->

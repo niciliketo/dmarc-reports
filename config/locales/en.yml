@@ -84,5 +84,9 @@ en:
         by_domain: 'Policies by domain_name'
         over_time: 'Policies reports over time'
         published: 'Policies published'
+      reports:
+        by_org_name: 'Reports by org_name'
+        over_time: 'Reports over time'
+
 
 

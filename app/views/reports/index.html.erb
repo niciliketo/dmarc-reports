@@ -1,9 +1,11 @@
-<%= render(CardComponent.new(title: 'Reports by org_name')) do %>
+<%= render(CardComponent.new(title: t('views.widgets.reports.by_org_name'))) do %>
   <%= render partial:'/reports/charts/pie_org_name' %>
 <% end %>
+<%= render(CardComponent.new(title: t('views.widgets.reports.over_time'))) do %>
+  <%= render partial:'/reports/charts/reports_over_time' %>
+<% end %>
 
-<%= render(CardComponent.new(title: 'Table')) do %>
-  <%= render partial: '/reports/tables/table_reports' %>
+<%= render(CardComponent.new(title: 'Table', width: :full)) do %>
   <%= render(TableComponent.new(columns: [:org_name, :begin, :end] , data: @reports)) %>
 <% end %>
 

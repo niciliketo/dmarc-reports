@@ -1,8 +1,16 @@
-<%= render @record %>
+<% content_for :page_title do %>
+   <%= @record.source_ip %>
+<% end %>
+<% [:source_ip, :dkim, :spf, :type, :comment, :header_from, :dkim_domain, :dkim_result, :dkim_hresult, :spf_domain, :spf_result, :count, :disposition, :reason_type, :reason_comment].each do |column| %>
+  <%= render(MetricComponent.new(title: Record.human_attribute_name(column), icon: 'fa-tasks', value: @record[column], width: :narrow)) %>
+<% end %>
 
+
+<!--
 <div>
   <%#= link_to "Edit this record", edit_record_path(@record) %> |
   <%= link_to "Back to records", records_path %>
 
   <%= button_to "Destroy this record", @record, method: :delete %>
 </div>
+-->
