@@ -1,4 +1,6 @@
-
+<% content_for :page_title do %>
+   <%= PolicyPublished.model_name.human(count: 2) %>
+<% end %>
 <%= render(MetricComponent.new(title: t('activerecord.models.policy_published.other'), icon: 'fa-tasks', value: @policy_publisheds.count)) %>
 <%= render(MetricComponent.new(title: t('views.widgets.policies.first'), icon: 'fa-calendar', value: @policy_publisheds.first&.created_at&.to_date&.to_fs(:long) || '-' )) %>
 <%= render(MetricComponent.new(title: t('views.widgets.policies.latest'), icon: 'fa-calendar', value: @policy_publisheds.last&.created_at&.to_date&.to_fs(:long) || '-')) %>

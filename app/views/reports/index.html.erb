@@ -1,3 +1,6 @@
+<% content_for :page_title do %>
+   <%= Report.model_name.human(count: 2) %>
+<% end %>
 <%= render(CardComponent.new(title: t('views.widgets.reports.by_org_name'))) do %>
   <%= render partial:'/reports/charts/pie_org_name' %>
 <% end %>

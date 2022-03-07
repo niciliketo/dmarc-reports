@@ -1,12 +1,10 @@
-<h1>Records</h1>
+<% content_for :page_title do %>
+   <%= Record.model_name.human(count: 2) %>
+<% end %>
 
-<div id="records">
-  <% @records.each do |record| %>
-    <%= render record %>
-    <p>
-      <%= link_to "Show this record", record %>
-    </p>
-  <% end %>
-</div>
+<%= render(CardComponent.new(title: 'Table', width: :full)) do %>
+  <%= render(TableComponent.new(columns: [:source_ip, :dkim, :spf, :type, :comment, :header_from, :dkim_domain, :dkim_result, :dkim_hresult, :spf_domain, :spf_result, :count, :disposition, :reason_type, :reason_comment] , data: @records)) %>
+<% end %>
+
 
 <%#= link_to "New record", new_record_path %>
