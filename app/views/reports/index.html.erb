@@ -4,6 +4,7 @@
 
 <%= render(CardComponent.new(title: 'Table')) do %>
   <%= render partial: '/reports/tables/table_reports' %>
+  <%= render(TableComponent.new(columns: [:org_name, :begin, :end] , data: @reports)) %>
 <% end %>
 
 

@@ -1,5 +1,12 @@
-<%= render(CardComponent.new(title: @policy_published.domain)) do %>
-  <%= render @policy_published %><h1>Hi</h1>
+<% content_for :page_title do %>
+   <%= @policy_published.domain %>
+<% end %>
+<% [:adkim, :aspf, :p, :pct].each do |column| %>
+  <%= render(MetricComponent.new(title: PolicyPublished.human_attribute_name(column), icon: 'fa-tasks', value: @policy_published[column], width: :narrow)) %>
+<% end %>
+
+<%= render(CardComponent.new(title: Report.model_name.human(count: @policy_published.reports), width: :full)) do %>
+  <%= render(TableComponent.new(columns: [:org_name, :begin, :end] , data: @policy_published.reports)) %>
 <% end %>
 
 

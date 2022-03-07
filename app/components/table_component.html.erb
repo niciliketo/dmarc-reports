@@ -11,8 +11,14 @@
         <tbody>
         <% @data.each do |item| %>
         <tr>
-          <% @columns.each do |column| %>
-            <td><%=f item.send(column) %></td>
+          <% @columns.each_with_index do |column, index| %>
+            <td>
+              <% if index == 0 %>
+                <%= link_to f(item.send(column)), item %>
+              <% else %>
+                <%=f item.send(column) %>
+              <% end %>
+            </td>
           <% end %>
         </tr>
         <% end %>
