@@ -6,7 +6,7 @@
 <% end %>
 
 <%= render(CardComponent.new(title: Report.model_name.human(count: @policy_published.reports), width: :full)) do %>
-  <%= render(TableComponent.new(columns: [:org_name, :begin, :end] , data: @policy_published.reports)) %>
+  <%= render(TableComponent.new(columns: [:org_name, :begin, :end, :spf_fail_records, :dkim_fail_records, :total_records] , data: @policy_published.reports)) %>
 <% end %>
 
 <!--

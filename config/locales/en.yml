@@ -76,6 +76,9 @@ en:
         report_id: "Report ID"
         begin: "Begin"
         end: "End"
+        spf_fail_records: SPF Fails
+        dkim_fail_records: DKIM Fails
+        total_records: Total Records
   views:
     widgets:
       policies:
